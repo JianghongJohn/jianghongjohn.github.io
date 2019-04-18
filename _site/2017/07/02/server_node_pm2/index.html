@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>linux搭建node.js服务，使用pm2启动socket.io服务的过程</title>
+    <meta name="description" content="  1.安装Linux Git工具   2.下载nvm(node版本管理工具)  3.使用nvm下载  4.编写package.json文件  5.编写server.js基础文件  6.将文件上传到你想要的路径  7.node自带npm ,用npm安装node所需的模块  8.让node能够在后台一直运行，下载p...">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="http://localhost:4000/2017/07/02/server_node_pm2/">
+    <link rel="alternate" type="application/rss+xml" title="Jneth" href="http://localhost:4000/feed.xml ">
+
+
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">Jneth</a>
+        <small>Jneth的技术博客</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        <i class="fa fa-home"></i>Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>linux搭建node.js服务，使用pm2启动socket.io服务的过程</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2017-07-02
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Server" title="Category: Server" rel="category">Server</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#linux" title="Tag: linux" rel="tag">linux</a-->
+        <a href="/tag/#linux" title="Tag: linux" rel="tag">linux</a>&nbsp;
+    
+        <!--a href="/tag/#node.js" title="Tag: node.js" rel="tag">node.js</a-->
+        <a href="/tag/#node.js" title="Tag: node.js" rel="tag">node.js</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#1安装linux-git工具" id="markdown-toc-1安装linux-git工具">1.安装Linux Git工具 </a></li>
+  <li><a href="#2下载nvmnode版本管理工具" id="markdown-toc-2下载nvmnode版本管理工具">2.下载nvm(node版本管理工具)</a></li>
+  <li><a href="#3使用nvm下载" id="markdown-toc-3使用nvm下载">3.使用nvm下载</a></li>
+  <li><a href="#4编写packagejson文件" id="markdown-toc-4编写packagejson文件">4.编写package.json文件</a></li>
+  <li><a href="#5编写serverjs基础文件" id="markdown-toc-5编写serverjs基础文件">5.编写server.js基础文件</a></li>
+  <li><a href="#6将文件上传到你想要的路径" id="markdown-toc-6将文件上传到你想要的路径">6.将文件上传到你想要的路径</a></li>
+  <li><a href="#7node自带npm-用npm安装node所需的模块" id="markdown-toc-7node自带npm-用npm安装node所需的模块">7.node自带npm ,用npm安装node所需的模块</a></li>
+  <li><a href="#8让node能够在后台一直运行下载pm2管理工具" id="markdown-toc-8让node能够在后台一直运行下载pm2管理工具">8.让node能够在后台一直运行，下载pm2管理工具</a></li>
+  <li><a href="#9利用pm2启动serverjs文件" id="markdown-toc-9利用pm2启动serverjs文件">9.利用pm2启动server.js文件</a></li>
+</ul>
+
+<h3 id="1安装linux-git工具">1.安装Linux Git工具 </h3>
+<p><code class="highlighter-rouge">sudo yum install git</code></p>
+<h3 id="2下载nvmnode版本管理工具">2.下载nvm(node版本管理工具)</h3>
+<p><code class="highlighter-rouge">curl -o- https://raw.[githubusercontent.com/creationix](http://githubusercontent.com/creationix)/nvm/v0.33.1/install.sh | bash</code></p>
+
+<p><strong>下载完成后可能还是提示没有nvm命令，使用source更新环境变量 source ~/.bashrc或者source ~/.zshrc</strong></p>
+<h3 id="3使用nvm下载">3.使用nvm下载</h3>
+<p><code class="highlighter-rouge">node  nvm install node</code></p>
+<h3 id="4编写packagejson文件">4.编写package.json文件</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+    "name": "node_test",
+
+    "version": "0.0.1",
+
+    "description": "my first socket.io app",
+
+    "dependencies": {
+
+        "express": "^4.15.2",
+
+        "socket.io": "^2.0.4"
+
+    }
+}
+</code></pre></div></div>
+<h3 id="5编写serverjs基础文件">5.编写server.js基础文件</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 'use strict'
+
+var app = require('express')();
+
+var http = require('http').Server(app);
+
+var io = require('socket.io')(http);
+
+http.listen(3000, function () {
+
+    console.log('listening on *:3000');
+
+});
+</code></pre></div></div>
+<h3 id="6将文件上传到你想要的路径">6.将文件上传到你想要的路径</h3>
+
+<p><code class="highlighter-rouge">scp /path/filename username@servername:/path</code></p>
+
+<p><code class="highlighter-rouge">scp /ddz-server/server.js  root@192.168.0.101:/root/ddz/ddz_server</code></p>
+
+<h3 id="7node自带npm-用npm安装node所需的模块">7.node自带npm ,用npm安装node所需的模块</h3>
+<p><code class="highlighter-rouge">node install</code></p>
+<h3 id="8让node能够在后台一直运行下载pm2管理工具">8.让node能够在后台一直运行，下载pm2管理工具</h3>
+<p>然而这时候只要我们服务端控制台一退出我们的服务就会断了，这时候就需要我们使用pm2这个管理工具了。
+<code class="highlighter-rouge">npm install pm2 -g</code></p>
+<h3 id="9利用pm2启动serverjs文件">9.利用pm2启动server.js文件</h3>
+<p><code class="highlighter-rouge">mp2 start server.js</code></p>
+
+<p><img src="https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/server_node_pm2.png" alt="image.png" /></p>
+
+<p>关于pm2的用法具体可以百度谷歌</p>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="/2019/04/01/weapp_luck/">微信小程序项目（3D硬币动画），node.js,MongoDB，Koa网络框架,OSS对象存储
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2017/05/30/iOS_pod_element/">组件化思想：cocoapod+coding搭建私人组件仓库</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2017/07/02/iOS_design_model/">iOS中的设计模式常识（适配器、策略、工厂）</a></p>
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+
+        <p class="description">
+             本站记录我全栈之旅的沿途风景！ 
+        </p>
+        <p class="contact">
+            Contact me at: 
+            <a href="https://github.com/JianghongJohn" title="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>  
+            <a href="mailto:jianghongjohn@130.com" title="email"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>  
+            <a href="http://weibo.com/Jneth_jh" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a>       
+        </p>
+        <p>
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </p>
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" data-scroll>
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/smooth-scroll.min.js " charset="utf-8"></script>
+    <script type="text/javascript">
+      smoothScroll.init({
+        speed: 500, // Integer. How fast to complete the scroll in milliseconds
+        easing: 'easeInOutCubic', // Easing pattern to use
+        offset: 20, // Integer. How far to offset the scrolling anchor location in pixels
+      });
+    </script>
+    <!-- <script src=" /js/scroll.min.js " charset="utf-8"></script> -->
+  </body>
+
+</html>

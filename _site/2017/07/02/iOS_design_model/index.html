@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>iOS中的设计模式常识（适配器、策略、工厂）</title>
+    <meta name="description" content="  一、适配器模式  二、策略模式  三、工厂模式一、适配器模式适配器模式简单来说就是让你的代码根据不同的情况发生相对应的变化（适配）🌰：在控制器中关联VIew与Model，当这个视图的Model对象有多个的时候，在View中无法对这些Model进行一一的处理，这时候就需要建立个“适配器”的类1.建立protoc...">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="http://localhost:4000/2017/07/02/iOS_design_model/">
+    <link rel="alternate" type="application/rss+xml" title="Jneth" href="http://localhost:4000/feed.xml ">
+
+
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">Jneth</a>
+        <small>Jneth的技术博客</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        <i class="fa fa-home"></i>Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>iOS中的设计模式常识（适配器、策略、工厂）</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2017-07-02
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#iOS" title="Category: iOS" rel="category">iOS</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#iOS" title="Tag: iOS" rel="tag">iOS</a-->
+        <a href="/tag/#iOS" title="Tag: iOS" rel="tag">iOS</a>&nbsp;
+    
+        <!--a href="/tag/#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F" title="Tag: 设计模式" rel="tag">设计模式</a-->
+        <a href="/tag/#设计模式" title="Tag: 设计模式" rel="tag">设计模式</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#一适配器模式" id="markdown-toc-一适配器模式">一、适配器模式</a></li>
+  <li><a href="#二策略模式" id="markdown-toc-二策略模式">二、策略模式</a></li>
+  <li><a href="#三工厂模式" id="markdown-toc-三工厂模式">三、工厂模式</a></li>
+</ul>
+
+<h3 id="一适配器模式">一、适配器模式</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>适配器模式简单来说就是让你的代码根据不同的情况发生相对应的变化（适配）
+</code></pre></div></div>
+
+<p>🌰：在控制器中关联VIew与Model，当这个视图的Model对象有多个的时候，在View中无法对这些Model进行一一的处理，这时候就需要建立个“适配器”的类</p>
+
+<p>1.建立protocol，protocol中定义接口，用于返回适配后的数据对象</p>
+
+<p>2.建立适配器类，适配器类中实现protocol的接口，可以先类似作为抽象类只返回nil</p>
+
+<p>3.建立适配器子类，子类中实现同适配器类的方法，但这时候根据具体传入的Model对象类型，进行适配，返回对应的处理结果。</p>
+
+<p>4.在View中创建一个加载数据的方法，传入类型为id<适配协议>，在方法中为子视图赋值</适配协议></p>
+
+<p>5.在controller中创建需要的Model对象数据，利用堕胎的思想创建适配器，然后通过适配器类通用的方法将数据传递给View</p>
+
+<h3 id="二策略模式">二、策略模式</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>定义一系列的算法,把每一个算法封装起来, 并且使它们可相互替换。本模式使得算法可独立于使用它的客户而变化
+</code></pre></div></div>
+
+<p>🌰：有两个输入框，一个为输入电话号码，一个为输入邮件，需要在textField代理方法中对输入值进行验证，这时候同样利用多态的方式，建立策略类进行验证</p>
+
+<p>1.创建策略抽象类，类中验证方法的正确性，输入为textField，包含一个属性errorMessage，用于提示。</p>
+
+<p>2.在自定义的textField中，导入抽象类并创建一个该对象和一个自定义的验证方法，方法中获取抽象类中的errorMessage中，若为nil则为输入正确。</p>
+
+<p>3.具体的策略实现，在于创建对应的策略子类，实现抽象类中的验证方法返回errorMessage。</p>
+
+<p>4.在controller中创建textField并，初始化子类策略对象给testField中抽象策略类赋值</p>
+
+<p>5.这样实现的时候只需要利用，调用textField的统一验证方法就行了。</p>
+
+<h3 id="三工厂模式">三、工厂模式</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>定义一个创建对象的接口，让其子类自己决定实例化哪一个工厂类，工厂模式使其创建过程延迟到子类进行
+</code></pre></div></div>
+
+<p>🌰：有两个工厂苹果工厂和谷歌工厂，生产不同的手机和手表，在用户需要切换手机和手表的时候只需要切换工厂就行了，实际的工厂内部生产流程则不去关心。</p>
+
+<p>1.创建一个工厂管理类，定义一个接口用于返回工厂，传入值为工厂枚举值，并根据枚举值去实现这个接口返回对应的工厂。</p>
+
+<p>2.创建一个抽象工厂类，分别定义生产手机和手表的接口</p>
+
+<p>3.创建两个具体工厂分别为苹果和谷歌，并各自实现生产手机和手表的接口，返回基类的手机和手表的子类创建</p>
+
+<p>4.创建抽象手机基类和手表基类，以及两种手机，两种手表子类。</p>
+
+<p>5.在controller中根据工厂管理类中传入工厂枚举创建工厂，然后工厂调用生产方法即可完成对应产品的生产。</p>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="/2018/12/27/python_file_change/">Python一键处理iOS马甲包的文件更改
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="/2017/05/30/iOS_pod_element/">组件化思想：cocoapod+coding搭建私人组件仓库
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+        <p><strong>上一篇</strong> <a href="/2017/07/02/server_node_pm2/">linux搭建node.js服务，使用pm2启动socket.io服务的过程</a></p>
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2018/12/27/python_file_change/">Python一键处理iOS马甲包的文件更改</a></p>
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+
+        <p class="description">
+             本站记录我全栈之旅的沿途风景！ 
+        </p>
+        <p class="contact">
+            Contact me at: 
+            <a href="https://github.com/JianghongJohn" title="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>  
+            <a href="mailto:jianghongjohn@130.com" title="email"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>  
+            <a href="http://weibo.com/Jneth_jh" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a>       
+        </p>
+        <p>
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </p>
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" data-scroll>
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/smooth-scroll.min.js " charset="utf-8"></script>
+    <script type="text/javascript">
+      smoothScroll.init({
+        speed: 500, // Integer. How fast to complete the scroll in milliseconds
+        easing: 'easeInOutCubic', // Easing pattern to use
+        offset: 20, // Integer. How far to offset the scrolling anchor location in pixels
+      });
+    </script>
+    <!-- <script src=" /js/scroll.min.js " charset="utf-8"></script> -->
+  </body>
+
+</html>

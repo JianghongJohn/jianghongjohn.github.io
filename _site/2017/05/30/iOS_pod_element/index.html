@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>组件化思想：cocoapod+coding搭建私人组件仓库</title>
+    <meta name="description" content="  一、首先在coding建立两个私人仓库（一个为组建远程索引仓库，一个为模板项目仓库）  二、在本地的cocoapod中添加我们自己的远程仓库(就是之前建的远程索引库地址)  三、在任意的位置新建一个文件夹利用cocoapod建立repo模板  四、修改podspec文件，并验证spec文件的有效性  五、然后...">
+
+    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico?" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
+    <link rel="stylesheet" href="/css/main.css ">
+    <link rel="canonical" href="http://localhost:4000/2017/05/30/iOS_pod_element/">
+    <link rel="alternate" type="application/rss+xml" title="Jneth" href="http://localhost:4000/feed.xml ">
+
+
+
+
+
+</head>
+
+
+  <body>
+
+    <header id="top">
+    <div class="wrapper">
+        <a href="/" class="brand">Jneth</a>
+        <small>Jneth的技术博客</small>
+        <button id="headerMenu" class="menu"><i class="fa fa-bars"></i></button>
+        <nav id="headerNav">
+            <ul>
+                <li>
+                    
+                    <a href="/">
+                    
+                        <i class="fa fa-home"></i>Home
+                    </a>
+                </li>
+
+                
+                    
+                    <li>
+                        
+                        <a href="/archive/">
+                        
+                            <i class="fa fa-archive"></i>Archives
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/category/">
+                        
+                            <i class="fa fa-th-list"></i>Categories
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        
+                        <a href="/tag/">
+                        
+                            <i class="fa fa-tags"></i>Tags
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                
+                    
+                
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+        <div class="page clearfix" post>
+    <div class="left">
+        <h1>组件化思想：cocoapod+coding搭建私人组件仓库</h1>
+        <div class="label">
+
+            <div class="label-card">
+                <i class="fa fa-calendar"></i>2017-05-30
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+                
+            </div>
+
+            <div class="label-card">
+            
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#iOS" title="Category: iOS" rel="category">iOS</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+            </div>
+
+            <div class="label-card">
+            
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <!--a href="/tag/#iOS" title="Tag: iOS" rel="tag">iOS</a-->
+        <a href="/tag/#iOS" title="Tag: iOS" rel="tag">iOS</a>&nbsp;
+    
+        <!--a href="/tag/#%E7%BC%96%E7%A8%8B%E6%80%9D%E6%83%B3" title="Tag: 编程思想" rel="tag">编程思想</a-->
+        <a href="/tag/#编程思想" title="Tag: 编程思想" rel="tag">编程思想</a>
+    
+  
+
+</span>
+
+            </div>
+
+        </div>
+        <hr>
+        <article itemscope itemtype="http://schema.org/BlogPosting">
+        <ul id="markdown-toc">
+  <li><a href="#一首先在coding建立两个私人仓库一个为组建远程索引仓库一个为模板项目仓库" id="markdown-toc-一首先在coding建立两个私人仓库一个为组建远程索引仓库一个为模板项目仓库">一、首先在coding建立两个私人仓库（一个为组建远程索引仓库，一个为模板项目仓库）</a></li>
+  <li><a href="#二在本地的cocoapod中添加我们自己的远程仓库就是之前建的远程索引库地址" id="markdown-toc-二在本地的cocoapod中添加我们自己的远程仓库就是之前建的远程索引库地址">二、在本地的cocoapod中添加我们自己的远程仓库(就是之前建的远程索引库地址)</a></li>
+  <li><a href="#三在任意的位置新建一个文件夹利用cocoapod建立repo模板" id="markdown-toc-三在任意的位置新建一个文件夹利用cocoapod建立repo模板">三、在任意的位置新建一个文件夹利用cocoapod建立repo模板</a></li>
+  <li><a href="#四修改podspec文件并验证spec文件的有效性" id="markdown-toc-四修改podspec文件并验证spec文件的有效性">四、修改podspec文件，并验证spec文件的有效性</a></li>
+  <li><a href="#五然后就可以将这一整个代码提交到远程仓库了这时候并没有关联repo索引" id="markdown-toc-五然后就可以将这一整个代码提交到远程仓库了这时候并没有关联repo索引">五、然后就可以将这一整个代码提交到远程仓库了（这时候并没有关联repo索引）</a></li>
+  <li><a href="#六最后就是要给我们的远程索引仓库关联我们的本地索引库了这样组件才会存到我们刚开始建的索引仓库中每次更新一次组件都要push最新的上去" id="markdown-toc-六最后就是要给我们的远程索引仓库关联我们的本地索引库了这样组件才会存到我们刚开始建的索引仓库中每次更新一次组件都要push最新的上去">六、最后就是要给我们的远程索引仓库关联我们的本地索引库了，这样组件才会存到我们刚开始建的索引仓库中(<em>每次更新一次组件，都要push最新的上去</em>)</a></li>
+  <li><a href="#七这样我们就可以正常使用cocoapod常规方式pod我们自己的组件了" id="markdown-toc-七这样我们就可以正常使用cocoapod常规方式pod我们自己的组件了">七、这样我们就可以正常使用cocoapod常规方式pod我们自己的组件了</a></li>
+  <li><a href="#补充" id="markdown-toc-补充">补充</a></li>
+</ul>
+
+<h3 id="一首先在coding建立两个私人仓库一个为组建远程索引仓库一个为模板项目仓库">一、首先在coding建立两个私人仓库（一个为组建远程索引仓库，一个为模板项目仓库）</h3>
+
+<p><img src="https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_1.png" alt="" />
+<img src="https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_2.png" alt="" /></p>
+
+<h3 id="二在本地的cocoapod中添加我们自己的远程仓库就是之前建的远程索引库地址">二、在本地的cocoapod中添加我们自己的远程仓库(就是之前建的远程索引库地址)</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/.cocoapods/repos
+
+pod repo add JnethRepo [https://git.coding.net/jianghongjohn/JnethSpec.git](https://git.coding.net/jianghongjohn/JnethSpec.git)
+
+//这样就生成了你自己的本地仓库
+
+</code></pre></div></div>
+<p><img src="https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_4.png" alt="" /></p>
+
+<h3 id="三在任意的位置新建一个文件夹利用cocoapod建立repo模板">三、在任意的位置新建一个文件夹利用cocoapod建立repo模板</h3>
+
+<p><code class="highlighter-rouge">pod lib create JHKit</code></p>
+
+<p><strong>生成的时候终端会有一些选项，按照提示输入然后回车就行</strong></p>
+
+<p>这样就生成了一个模板，接下来就是将你的组件放入Classes文件中，并添加到工程中就可以了</p>
+
+<p><img src="https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_4.png" alt="" />
+<img src="https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_5.png" alt="" /></p>
+
+<h3 id="四修改podspec文件并验证spec文件的有效性">四、修改podspec文件，并验证spec文件的有效性</h3>
+
+<p><img src="https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_6.png" alt="" /></p>
+
+<p><strong>期间要做的是验证spec文件的有效性</strong></p>
+
+<p>输入命令 pod lib lint</p>
+
+<p>可能出现错误警告</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[!] JHKit did not pass validation, due to 27 warnings (but you can use `--allow-warnings` to ignore them).
+You can use the `--no-clean` option to inspect any issue.
+</code></pre></div></div>
+
+<p>将命令改成pod lib lint –allow-warnings</p>
+
+<p>提示：JnethKit passed validation.</p>
+
+<p>就是符合要求的spec文件了!</p>
+
+<h3 id="五然后就可以将这一整个代码提交到远程仓库了这时候并没有关联repo索引">五、然后就可以将这一整个代码提交到远程仓库了（这时候并没有关联repo索引）</h3>
+
+<p><code class="highlighter-rouge">git add .</code></p>
+
+<p><code class="highlighter-rouge">git commit -m "first commit"</code></p>
+
+<p><code class="highlighter-rouge">git remote add origin [https://git.coding.net/ZKReadStone/LoginModule.git](https://git.coding.net/ZKReadStone/LoginModule.git)</code></p>
+
+<p><code class="highlighter-rouge">git push origin master</code></p>
+
+<p>给项目打标记</p>
+
+<p><code class="highlighter-rouge">git tag -m 'New Tag' 0.1.0</code></p>
+
+<p><code class="highlighter-rouge">git push --tags</code></p>
+
+<p>这里默认是0.1.0，一定要与之前我们在Xcode中看到的s.version号一致！</p>
+
+<p><img src="https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_7.png" alt="" /></p>
+
+<p>可以看到readme文件他也帮我们自动生成了</p>
+
+<h3 id="六最后就是要给我们的远程索引仓库关联我们的本地索引库了这样组件才会存到我们刚开始建的索引仓库中每次更新一次组件都要push最新的上去">六、最后就是要给我们的远程索引仓库关联我们的本地索引库了，这样组件才会存到我们刚开始建的索引仓库中(<em>每次更新一次组件，都要push最新的上去</em>)</h3>
+
+<p><code class="highlighter-rouge">pod repo push JnethRepo JHKit.podspec</code></p>
+
+<p>若出现警告依然可以使用–allow-warnings</p>
+
+<p><code class="highlighter-rouge">pod repo push JnethRepo JnethKit.podspec --allow-warnings</code></p>
+
+<p><img src="https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_9.png" alt="" /></p>
+
+<h3 id="七这样我们就可以正常使用cocoapod常规方式pod我们自己的组件了">七、这样我们就可以正常使用cocoapod常规方式pod我们自己的组件了</h3>
+
+<p>注意在podfile中，我们必须添加source，否则会找不到资源</p>
+
+<p><code class="highlighter-rouge">source '[https://git.coding.net/jianghongjohn/JnethSpec.git](https://git.coding.net/jianghongjohn/JnethSpec.git)’</code></p>
+
+<p><img src="https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_10.png" alt="" /></p>
+
+<p>这样我们的组件库就成功通过cocoapod加入到我们的项目中了，而且所有关联他都自动加好了</p>
+
+<p><img src="https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_11.png" alt="" /></p>
+
+<p><img src="https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_12.png" alt="" /></p>
+
+<p><code class="highlighter-rouge">#import "JHKit-umbrella.h"</code>就可以使用所有的组件了</p>
+
+<p>JHKit-umbrella.h 就是默认生成的我们引用库使用的header文件，可以更改为自己的header</p>
+
+<h3 id="补充">补充</h3>
+
+<p>代码中使用[NSBundle mainBundle]加载资源资源文件会加载失败，因为文件已经不是这个mainBundle中了，用以下方法解决</p>
+
+<p>修改podspec文件中的资源包，这样打包的时候他就会生成一个JnethKit.bundle资源包，Assets里面的文件就会打包到这个里面了</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>s.resource_bundles = {
+     'JnethKit' =&gt; ['JnethKit/Assets/*']
+   }
+</code></pre></div></div>
+
+<p>获取文件的方法</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+NSString * filePath = [bundle pathForResource:@"address" ofType:@"txt" inDirectory:@"JnethKit.bundle"];
+</code></pre></div></div>
+
+        </article>
+        <hr>
+
+        
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <h2 id="similar_posts">Similar Posts</h2>
+                        <ul>
+                        
+                        <li class="relatedPost">
+                            <a href="/2018/12/27/python_file_change/">Python一键处理iOS马甲包的文件更改
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="/2017/07/02/iOS_design_model/">iOS中的设计模式常识（适配器、策略、工厂）
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
+                
+                    
+                
+            
+                
+                    
+                
+                    
+                
+            
+        
+        
+            </ul>
+        
+
+        <div class="post-recent">
+    <div class="pre">
+        
+    </div>
+    <div class="nex">
+
+        
+        <p><strong>下一篇</strong> <a href="/2017/07/02/server_node_pm2/">linux搭建node.js服务，使用pm2启动socket.io服务的过程</a></p>
+        
+    </div>
+</div>
+
+
+        <h2 id="comments">Comments</h2>
+        
+
+
+
+
+
+    </div>
+    <button class="anchor"><i class="fa fa-anchor"></i></button>
+    <div class="right">
+        <div class="wrap">
+
+            <!-- Content -->
+            <div class="side content">
+                <div>
+                    Content
+                </div>
+                <ul id="content-side" class="content-ul">
+                    
+                    <li><a href="#similar_posts">Similar Posts</a></li>
+                    
+                    <li><a href="#comments">Comments</a></li>
+                </ul>
+            </div>
+            <!-- 其他div框放到这里 -->
+            <!-- <div class="side">bbbb</div> -->
+        </div>
+    </div>
+</div>
+<script>
+/**
+ * target _blank
+ */
+(function() {
+    var aTags = document.querySelectorAll('article a:not([id])')
+    for (var i = 0; i < aTags.length; i++) {
+        aTags[i].setAttribute('target', '_blank')
+    }
+}());
+</script>
+<script src="/js/pageContent.js " charset="utf-8"></script>
+
+
+    <footer class="site-footer">
+
+
+    <div class="wrapper">
+
+        <p class="description">
+             本站记录我全栈之旅的沿途风景！ 
+        </p>
+        <p class="contact">
+            Contact me at: 
+            <a href="https://github.com/JianghongJohn" title="GitHub"><i class="fa fa-github" aria-hidden="true"></i></a>  
+            <a href="mailto:jianghongjohn@130.com" title="email"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>  
+            <a href="http://weibo.com/Jneth_jh" title="Weibo"><i class="fa fa-weibo" aria-hidden="true"></i></a>       
+        </p>
+        <p>
+            本站总访问量<span id="busuanzi_value_site_pv"></span>次，本站访客数<span id="busuanzi_value_site_uv"></span>人次，本文总阅读量<span id="busuanzi_value_page_pv"></span>次
+        </p>
+        <p class="power">
+            <span>
+                Site powered by <a href="https://jekyllrb.com/">Jekyll</a> & <a href="https://pages.github.com/">Github Pages</a>.
+            </span>
+            <span>
+                Theme designed by <a href="https://github.com/Gaohaoyang">HyG</a>.
+            </span>
+        </p>
+    </div>
+</footer>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <div class="back-to-top">
+    <a href="#top" data-scroll>
+        <i class="fa fa-arrow-up" aria-hidden="true"></i>
+    </a>
+</div>
+
+    <script src=" /js/main.js " charset="utf-8"></script>
+    <script src=" /js/smooth-scroll.min.js " charset="utf-8"></script>
+    <script type="text/javascript">
+      smoothScroll.init({
+        speed: 500, // Integer. How fast to complete the scroll in milliseconds
+        easing: 'easeInOutCubic', // Easing pattern to use
+        offset: 20, // Integer. How far to offset the scrolling anchor location in pixels
+      });
+    </script>
+    <!-- <script src=" /js/scroll.min.js " charset="utf-8"></script> -->
+  </body>
+
+</html>
