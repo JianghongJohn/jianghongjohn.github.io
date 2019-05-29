@@ -11,8 +11,8 @@ tags: iOS 编程思想
 
 ### 一、首先在coding建立两个私人仓库（一个为组建远程索引仓库，一个为模板项目仓库）
 
-![](https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_1.png)
-![](https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_2.png)
+![](https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/iOS_pod_element_1.png?raw=true)
+![](https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/iOS_pod_element_2.png?raw=true)
 
 ### 二、在本地的cocoapod中添加我们自己的远程仓库(就是之前建的远程索引库地址)
 
@@ -24,7 +24,7 @@ pod repo add JnethRepo [https://git.coding.net/jianghongjohn/JnethSpec.git](htt
 //这样就生成了你自己的本地仓库
 
 ```
-![](https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_4.png)
+![](https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/iOS_pod_element_3.png?raw=trueg)
 
 ### 三、在任意的位置新建一个文件夹利用cocoapod建立repo模板
 
@@ -34,12 +34,12 @@ pod repo add JnethRepo [https://git.coding.net/jianghongjohn/JnethSpec.git](htt
 
 这样就生成了一个模板，接下来就是将你的组件放入Classes文件中，并添加到工程中就可以了
 
-![](https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_4.png)
-![](https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_5.png)
+![](https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/iOS_pod_element_4.png?raw=true)
+![](https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/iOS_pod_element_5.png?raw=true)
 
 ### 四、修改podspec文件，并验证spec文件的有效性
 
-![](https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_6.png)
+![](https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/iOS_pod_element_6.png?raw=true)
 
 **期间要做的是验证spec文件的有效性**
 
@@ -76,7 +76,7 @@ You can use the `--no-clean` option to inspect any issue.
 
 这里默认是0.1.0，一定要与之前我们在Xcode中看到的s.version号一致！
 
-![](https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_7.png)
+![](https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/iOS_pod_element_7.png?raw=true)
 
 可以看到readme文件他也帮我们自动生成了
 
@@ -88,7 +88,7 @@ You can use the `--no-clean` option to inspect any issue.
 
 `pod repo push JnethRepo JnethKit.podspec --allow-warnings`
 
-![](https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_9.png)
+![](https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/iOS_pod_element_9.png?raw=true)
 
 
 ### 七、这样我们就可以正常使用cocoapod常规方式pod我们自己的组件了
@@ -97,13 +97,13 @@ You can use the `--no-clean` option to inspect any issue.
 
 `source '[https://git.coding.net/jianghongjohn/JnethSpec.git](https://git.coding.net/jianghongjohn/JnethSpec.git)’`
 
-![](https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_10.png)
+![](https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/iOS_pod_element_10.png?raw=true)
 
 这样我们的组件库就成功通过cocoapod加入到我们的项目中了，而且所有关联他都自动加好了
 
-![](https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_11.png)
+![](https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/iOS_pod_element_11.png?raw=true)
 
-![](https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_12.png)
+![](https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/iOS_pod_element_12.png?raw=true)
 
 `#import "JHKit-umbrella.h"`就可以使用所有的组件了
 

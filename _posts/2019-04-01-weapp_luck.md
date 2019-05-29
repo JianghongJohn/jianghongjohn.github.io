@@ -10,10 +10,10 @@ tags:  node.js 小程序
 {:toc}
 
 ### 一、项目基本效果
-![IMG_1783.PNG](https://upload-images.jianshu.io/upload_images/5273985-b76a38699385bb81.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![WeChatefb6bc3a3b27596687426d135e1d8020.png](https://upload-images.jianshu.io/upload_images/5273985-b5f761fd1c76f8a6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![IMG_1788.PNG](https://upload-images.jianshu.io/upload_images/5273985-782312f93ed3e222.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![IMG_1801.PNG](https://upload-images.jianshu.io/upload_images/5273985-f7f7b76c80bb5508.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![](https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/weapp_luck_1.PNG?raw=true)
+![](https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/weapp_luck_2.png?raw=true)
+![](https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/weapp_luck_3.PNG?raw=true)
+![](https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/weapp_luck_4.PNG?raw=true)
 
 ### 二、后台框架搭建
 >项目后端使用node.js,MongoDB数据库的mongoose框架，Koa网络框架,阿里云服务器OSS对象存储。

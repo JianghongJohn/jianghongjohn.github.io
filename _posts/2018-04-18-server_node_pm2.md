@@ -65,6 +65,6 @@ http.listen(3000, function () {
 ### 9.利用pm2启动server.js文件 
 `mp2 start server.js`
 
-![image.png](https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/server_node_pm2.png)
+![](https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/server_node_pm2.png?raw=true)
 
 关于pm2的用法具体可以百度谷歌

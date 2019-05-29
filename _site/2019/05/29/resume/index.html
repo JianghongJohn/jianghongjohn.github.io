@@ -6,15 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>iOS中的设计模式常识（适配器、策略、工厂）</title>
-    <meta name="description" content="  一、适配器模式  二、策略模式  三、工厂模式一、适配器模式适配器模式简单来说就是让你的代码根据不同的情况发生相对应的变化（适配）🌰：在控制器中关联VIew与Model，当这个视图的Model对象有多个的时候，在View中无法对这些Model进行一一的处理，这时候就需要建立个“适配器”的类1.建立protoc...">
+    <title>iOS工程师简历-江弘</title>
+    <meta name="description" content="  联系方式  个人信息  个人能力  工作经历  项目经验  自我评价  开源项目  技术文章  最后联系方式  手机：15757166458  Email：jianghongjohn@163.com  籍贯：浙江-温州-苍南个人信息  江弘/男/1993  本科一本/中国计量大学-信息与计算科学  工作年限：...">
 
     <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="icon" href="/favicon.ico?" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://at.alicdn.com/t/font_8v3czwksspqlg14i.css">
     <link rel="stylesheet" href="/css/main.css ">
-    <link rel="canonical" href="http://localhost:4000/2017/07/02/iOS_design_model/">
+    <link rel="canonical" href="http://localhost:4000/2019/05/29/resume/">
     <link rel="alternate" type="application/rss+xml" title="Jneth" href="http://localhost:4000/feed.xml ">
 
 
@@ -88,11 +88,11 @@
 
         <div class="page clearfix" post>
     <div class="left">
-        <h1>iOS中的设计模式常识（适配器、策略、工厂）</h1>
+        <h1>iOS工程师简历-江弘</h1>
         <div class="label">
 
             <div class="label-card">
-                <i class="fa fa-calendar"></i>2017-07-02
+                <i class="fa fa-calendar"></i>2019-05-29
             </div>
 
             <div class="label-card">
@@ -130,10 +130,7 @@
   
     
         <!--a href="/tag/#iOS" title="Tag: iOS" rel="tag">iOS</a-->
-        <a href="/tag/#iOS" title="Tag: iOS" rel="tag">iOS</a>&nbsp;
-    
-        <!--a href="/tag/#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F" title="Tag: 设计模式" rel="tag">设计模式</a-->
-        <a href="/tag/#设计模式" title="Tag: 设计模式" rel="tag">设计模式</a>
+        <a href="/tag/#iOS" title="Tag: iOS" rel="tag">iOS</a>
     
   
 
@@ -145,60 +142,111 @@
         <hr>
         <article itemscope itemtype="http://schema.org/BlogPosting">
         <ul id="markdown-toc">
-  <li><a href="#一适配器模式" id="markdown-toc-一适配器模式">一、适配器模式</a></li>
-  <li><a href="#二策略模式" id="markdown-toc-二策略模式">二、策略模式</a></li>
-  <li><a href="#三工厂模式" id="markdown-toc-三工厂模式">三、工厂模式</a></li>
+  <li><a href="#联系方式" id="markdown-toc-联系方式">联系方式</a></li>
+  <li><a href="#个人信息" id="markdown-toc-个人信息">个人信息</a></li>
+  <li><a href="#个人能力" id="markdown-toc-个人能力">个人能力</a></li>
+  <li><a href="#工作经历" id="markdown-toc-工作经历">工作经历</a></li>
+  <li><a href="#项目经验" id="markdown-toc-项目经验">项目经验</a></li>
+  <li><a href="#自我评价" id="markdown-toc-自我评价">自我评价</a></li>
+  <li><a href="#开源项目" id="markdown-toc-开源项目">开源项目</a></li>
+  <li><a href="#技术文章" id="markdown-toc-技术文章">技术文章</a></li>
+  <li><a href="#最后" id="markdown-toc-最后">最后</a></li>
 </ul>
 
-<h3 id="一适配器模式">一、适配器模式</h3>
+<h2 id="联系方式">联系方式</h2>
+<ul>
+  <li>手机：15757166458</li>
+  <li>Email：jianghongjohn@163.com</li>
+  <li>籍贯：浙江-温州-苍南</li>
+</ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>适配器模式简单来说就是让你的代码根据不同的情况发生相对应的变化（适配）
-</code></pre></div></div>
+<hr />
+<h2 id="个人信息">个人信息</h2>
 
-<p>🌰：在控制器中关联VIew与Model，当这个视图的Model对象有多个的时候，在View中无法对这些Model进行一一的处理，这时候就需要建立个“适配器”的类</p>
+<ul>
+  <li>江弘/男/1993</li>
+  <li>本科一本/中国计量大学-信息与计算科学</li>
+  <li>工作年限：3年</li>
+  <li>Github：<a href="https://github.com/JianghongJohn">https://github.com/JianghongJohn</a></li>
+  <li>个人博客：<a href="http://www.jneth.cn">http://www.jneth.cn</a></li>
+  <li>平台博客：<a href="https://blog.csdn.net/u010008647">https://blog.csdn.net/u010008647</a></li>
+</ul>
 
-<p>1.建立protocol，protocol中定义接口，用于返回适配后的数据对象</p>
+<hr />
 
-<p>2.建立适配器类，适配器类中实现protocol的接口，可以先类似作为抽象类只返回nil</p>
+<h2 id="个人能力">个人能力</h2>
 
-<p>3.建立适配器子类，子类中实现同适配器类的方法，但这时候根据具体传入的Model对象类型，进行适配，返回对应的处理结果。</p>
+<ul>
+  <li>精通 Objective-C 语言的特性（Runtime,Block,AutoreleasePool,RunLoop,msgsend），了解主流开源框架的源码结构</li>
+  <li>3年 iOS 客户端开发经验，有独立设计开发 iOS 客户端架构经验（MVC、MVVM等）</li>
+  <li>有一定node.js全栈开发能力，web混合开发，Linux系统部署，数据库设计，API设计，NGINX代理，OSS对象存储，等都在项目中使用过。</li>
+  <li>有跨平台和前端开发的丰富经验，对HTML，CSS，JS比较熟练，Vue也使用过一段时间</li>
+  <li>熟悉Python，编写脚本辅助开发，测试网络爬虫</li>
+  <li>金融贷款平台开发经验丰富，包括马甲包上架经验</li>
+  <li>一本计算机专业，计算机基础良好，理解设计模式（工厂，适配器，策略等），熟悉常用排序算法，查找算法，熟悉栈、队列，树，链表，多线程，熟悉网络通信。</li>
+  <li>能熟练使用调试instrument工具包调试和优化代码，有编写单元测试代码的习惯</li>
+  <li>有一定的组件化和模块化思想，对类之间解耦思路有一定了解</li>
+  <li>有独到见解，常参与产品的设计和改进</li>
+</ul>
 
-<p>4.在View中创建一个加载数据的方法，传入类型为id<适配协议>，在方法中为子视图赋值</适配协议></p>
+<hr />
+<h2 id="工作经历">工作经历</h2>
+<p>浩韵控股集团（毕业至今）</p>
 
-<p>5.在controller中创建需要的Model对象数据，利用堕胎的思想创建适配器，然后通过适配器类通用的方法将数据传递给View</p>
+<hr />
 
-<h3 id="二策略模式">二、策略模式</h3>
+<h2 id="项目经验">项目经验</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>定义一系列的算法,把每一个算法封装起来, 并且使它们可相互替换。本模式使得算法可独立于使用它的客户而变化
-</code></pre></div></div>
+<ul>
+  <li><strong><em>iOS开发</em></strong></li>
+</ul>
 
-<p>🌰：有两个输入框，一个为输入电话号码，一个为输入邮件，需要在textField代理方法中对输入值进行验证，这时候同样利用多态的方式，建立策略类进行验证</p>
+<p><strong>掌上行车(公司重心)</strong>
+一个实现汽车金融贷前贷中贷后全功能的公司核心APP，从中熟悉了汽车互联网金融全和保险的全套流程。项目从零开始使用MVVM模式搭建，有一定的组件化思想，利用Runtime动态性创建页面结构。功能涉及：1.复杂表单数据页面交互。2.自建的基于CA的数据分析图表。3.原始架构基于ionic平台的h5和原生的混合开发。4.音视频通话和录制、即时通讯、OpenGL数据流处理。5.基础的无埋点数据统计。</p>
 
-<p>1.创建策略抽象类，类中验证方法的正确性，输入为textField，包含一个属性errorMessage，用于提示。</p>
+<p><strong>叫兽车商&amp;叫兽接单</strong>
+商用APP，一种创新的汽车金融模式，经销商发布任务，业务员独立接单、抢单，不再受传统担保公司的限制。主要是复杂表单展现。</p>
 
-<p>2.在自定义的textField中，导入抽象类并创建一个该对象和一个自定义的验证方法，方法中获取抽象类中的errorMessage中，若为nil则为输入正确。</p>
+<p><strong>八匹马租车、嗨会员-会员卡管理系统</strong>
+八匹马租车：基于第三方地图的开发，功能涉及商城、支付，以及地图定位的一些计算
+嗨会员：线下商城使用的会员卡系统，普通用户和商家登录两套代码公用APP，功能涉及商城、支付、即时通讯。</p>
 
-<p>3.具体的策略实现，在于创建对应的策略子类，实现抽象类中的验证方法返回errorMessage。</p>
+<ul>
+  <li><strong><em>小程序开发</em></strong></li>
+</ul>
 
-<p>4.在controller中创建textField并，初始化子类策略对象给testField中抽象策略类赋值</p>
+<p><strong>51装修宝</strong> 用于公司扩展业务“装修贷”，实现订单发起和后续订单处理。</p>
 
-<p>5.这样实现的时候只需要利用，调用textField的统一验证方法就行了。</p>
+<p><strong>掌上行车</strong> 掌上行车App的辅助功能，主要用于客户查看还款信息。</p>
 
-<h3 id="三工厂模式">三、工厂模式</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>定义一个创建对象的接口，让其子类自己决定实例化哪一个工厂类，工厂模式使其创建过程延迟到子类进行
-</code></pre></div></div>
+<p><strong>聚合风控</strong> 简易小工具，聚合多平台征信查询功能。</p>
+<ul>
+  <li><strong><em>H5开发</em></strong>
+车米力:<a href="www.chemili.com">www.chemili.com</a>
+使用Vue开发的汽车资源平台，类似瓜子二手车这种的</li>
+</ul>
 
-<p>🌰：有两个工厂苹果工厂和谷歌工厂，生产不同的手机和手表，在用户需要切换手机和手表的时候只需要切换工厂就行了，实际的工厂内部生产流程则不去关心。</p>
+<h2 id="自我评价">自我评价</h2>
+<p>三年的开发经验，主要以iOS开发为主，也多次参与其他岗位的开发。工作之外自己学习的编程技能包括：webAPP混合开发、H5开发、Cocos游戏开发、微信小程序开发。详情可以查看我的GitHub和以及博客。主要做前端的一些开发，对服务端也做过一定了解，GitHub上cocos2d开发的斗地主用的服务端就是基于node.js搭建的框架。</p>
 
-<p>1.创建一个工厂管理类，定义一个接口用于返回工厂，传入值为工厂枚举值，并根据枚举值去实现这个接口返回对应的工厂。</p>
+<hr />
+<h2 id="开源项目">开源项目</h2>
 
-<p>2.创建一个抽象工厂类，分别定义生产手机和手表的接口</p>
+<ul>
+  <li><a href="https://github.com/JianghongJohn/cocoscreator-ddz">斗地主</a>：完整斗地主项目，全栈开发</li>
+  <li><a href="https://github.com/JianghongJohn/weapp-luck">小运气</a>：微信小程序项目（3D抛硬币）node.js,MongoDB，全栈开发</li>
+</ul>
 
-<p>3.创建两个具体工厂分别为苹果和谷歌，并各自实现生产手机和手表的接口，返回基类的手机和手表的子类创建</p>
+<h2 id="技术文章">技术文章</h2>
 
-<p>4.创建抽象手机基类和手表基类，以及两种手机，两种手表子类。</p>
+<ul>
+  <li><a href="https://www.jianshu.com/p/639e9d013a55">微信小程序项目（3D抛硬币）node.js,MongoDB，全栈开发</a></li>
+  <li><a href="https://www.jianshu.com/p/20dc05b5a437">马甲包处理和Python自动化文件更改</a></li>
+</ul>
 
-<p>5.在controller中根据工厂管理类中传入工厂枚举创建工厂，然后工厂调用生产方法即可完成对应产品的生产。</p>
+<h2 id="最后">最后</h2>
+
+<p>希望您能给我一次面试的机会，不想因为没有过大厂经验，没有211毕业，就被错失了好机会，毕业三年有很认真的在学习各项的能力，不仅仅是计算机编程。感谢！</p>
 
         </article>
         <hr>
@@ -209,42 +257,20 @@
             
                 
                     
+                
+            
+                
+                    
+                
+            
+        
+            
+            
+                
+                    
                         
                         <h2 id="similar_posts">Similar Posts</h2>
                         <ul>
-                        
-                        <li class="relatedPost">
-                            <a href="/2019/05/29/resume/">iOS工程师简历-江弘
-                            
-                            </a>
-                        </li>
-                        
-                        
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
-                
-                    
-                
-            
-                
-                    
-                
-                    
-                
-            
-        
-            
-            
-                
-                    
                         
                         <li class="relatedPost">
                             <a href="/2018/12/27/python_file_change/">Python一键处理iOS马甲包的文件更改
@@ -255,11 +281,27 @@
                         
                     
                 
-                    
-                
             
                 
                     
+                
+            
+        
+            
+            
+                
+                    
+                        
+                        <li class="relatedPost">
+                            <a href="/2017/07/02/iOS_design_model/">iOS中的设计模式常识（适配器、策略、工厂）
+                            
+                            </a>
+                        </li>
+                        
+                        
+                    
+                
+            
                 
                     
                 
@@ -270,11 +312,7 @@
                 
                     
                 
-                    
-                
             
-                
-                    
                 
                     
                 
@@ -294,11 +332,7 @@
                         
                     
                 
-                    
-                
             
-                
-                    
                 
                     
                 
@@ -311,13 +345,11 @@
         <div class="post-recent">
     <div class="pre">
         
-        <p><strong>上一篇</strong> <a href="/2017/07/02/server_node_pm2/">linux搭建node.js服务，使用pm2启动socket.io服务的过程</a></p>
+        <p><strong>上一篇</strong> <a href="/2019/04/01/weapp_luck/">微信小程序项目（3D硬币动画），node.js,MongoDB，Koa网络框架,OSS对象存储</a></p>
         
     </div>
     <div class="nex">
 
-        
-        <p><strong>下一篇</strong> <a href="/2018/12/27/python_file_change/">Python一键处理iOS马甲包的文件更改</a></p>
         
     </div>
 </div>

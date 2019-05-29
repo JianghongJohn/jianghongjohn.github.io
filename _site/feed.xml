@@ -5,9 +5,129 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 18 Apr 2019 10:10:17 +0800</pubDate>
-    <lastBuildDate>Thu, 18 Apr 2019 10:10:17 +0800</lastBuildDate>
+    <pubDate>Wed, 29 May 2019 14:30:23 +0800</pubDate>
+    <lastBuildDate>Wed, 29 May 2019 14:30:23 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>iOS工程师简历-江弘</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#联系方式&quot; id=&quot;markdown-toc-联系方式&quot;&gt;联系方式&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#个人信息&quot; id=&quot;markdown-toc-个人信息&quot;&gt;个人信息&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#个人能力&quot; id=&quot;markdown-toc-个人能力&quot;&gt;个人能力&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#工作经历&quot; id=&quot;markdown-toc-工作经历&quot;&gt;工作经历&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#项目经验&quot; id=&quot;markdown-toc-项目经验&quot;&gt;项目经验&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#自我评价&quot; id=&quot;markdown-toc-自我评价&quot;&gt;自我评价&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#开源项目&quot; id=&quot;markdown-toc-开源项目&quot;&gt;开源项目&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#技术文章&quot; id=&quot;markdown-toc-技术文章&quot;&gt;技术文章&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#最后&quot; id=&quot;markdown-toc-最后&quot;&gt;最后&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;联系方式&quot;&gt;联系方式&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;手机：15757166458&lt;/li&gt;
+  &lt;li&gt;Email：jianghongjohn@163.com&lt;/li&gt;
+  &lt;li&gt;籍贯：浙江-温州-苍南&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;个人信息&quot;&gt;个人信息&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;江弘/男/1993&lt;/li&gt;
+  &lt;li&gt;本科一本/中国计量大学-信息与计算科学&lt;/li&gt;
+  &lt;li&gt;工作年限：3年&lt;/li&gt;
+  &lt;li&gt;Github：&lt;a href=&quot;https://github.com/JianghongJohn&quot;&gt;https://github.com/JianghongJohn&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;个人博客：&lt;a href=&quot;http://www.jneth.cn&quot;&gt;http://www.jneth.cn&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;平台博客：&lt;a href=&quot;https://blog.csdn.net/u010008647&quot;&gt;https://blog.csdn.net/u010008647&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;个人能力&quot;&gt;个人能力&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;精通 Objective-C 语言的特性（Runtime,Block,AutoreleasePool,RunLoop,msgsend），了解主流开源框架的源码结构&lt;/li&gt;
+  &lt;li&gt;3年 iOS 客户端开发经验，有独立设计开发 iOS 客户端架构经验（MVC、MVVM等）&lt;/li&gt;
+  &lt;li&gt;有一定node.js全栈开发能力，web混合开发，Linux系统部署，数据库设计，API设计，NGINX代理，OSS对象存储，等都在项目中使用过。&lt;/li&gt;
+  &lt;li&gt;有跨平台和前端开发的丰富经验，对HTML，CSS，JS比较熟练，Vue也使用过一段时间&lt;/li&gt;
+  &lt;li&gt;熟悉Python，编写脚本辅助开发，测试网络爬虫&lt;/li&gt;
+  &lt;li&gt;金融贷款平台开发经验丰富，包括马甲包上架经验&lt;/li&gt;
+  &lt;li&gt;一本计算机专业，计算机基础良好，理解设计模式（工厂，适配器，策略等），熟悉常用排序算法，查找算法，熟悉栈、队列，树，链表，多线程，熟悉网络通信。&lt;/li&gt;
+  &lt;li&gt;能熟练使用调试instrument工具包调试和优化代码，有编写单元测试代码的习惯&lt;/li&gt;
+  &lt;li&gt;有一定的组件化和模块化思想，对类之间解耦思路有一定了解&lt;/li&gt;
+  &lt;li&gt;有独到见解，常参与产品的设计和改进&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;工作经历&quot;&gt;工作经历&lt;/h2&gt;
+浩韵控股集团（毕业至今）
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;项目经验&quot;&gt;项目经验&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;em&gt;iOS开发&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;strong&gt;掌上行车(公司重心)&lt;/strong&gt;
+一个实现汽车金融贷前贷中贷后全功能的公司核心APP，从中熟悉了汽车互联网金融全和保险的全套流程。项目从零开始使用MVVM模式搭建，有一定的组件化思想，利用Runtime动态性创建页面结构。功能涉及：1.复杂表单数据页面交互。2.自建的基于CA的数据分析图表。3.原始架构基于ionic平台的h5和原生的混合开发。4.音视频通话和录制、即时通讯、OpenGL数据流处理。5.基础的无埋点数据统计。
+
+&lt;strong&gt;叫兽车商&amp;amp;叫兽接单&lt;/strong&gt;
+商用APP，一种创新的汽车金融模式，经销商发布任务，业务员独立接单、抢单，不再受传统担保公司的限制。主要是复杂表单展现。
+
+&lt;strong&gt;八匹马租车、嗨会员-会员卡管理系统&lt;/strong&gt;
+八匹马租车：基于第三方地图的开发，功能涉及商城、支付，以及地图定位的一些计算
+嗨会员：线下商城使用的会员卡系统，普通用户和商家登录两套代码公用APP，功能涉及商城、支付、即时通讯。
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;em&gt;小程序开发&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;strong&gt;51装修宝&lt;/strong&gt; 用于公司扩展业务“装修贷”，实现订单发起和后续订单处理。
+
+&lt;strong&gt;掌上行车&lt;/strong&gt; 掌上行车App的辅助功能，主要用于客户查看还款信息。
+
+&lt;strong&gt;聚合风控&lt;/strong&gt; 简易小工具，聚合多平台征信查询功能。
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;&lt;em&gt;H5开发&lt;/em&gt;&lt;/strong&gt;
+车米力:&lt;a href=&quot;www.chemili.com&quot;&gt;www.chemili.com&lt;/a&gt;
+使用Vue开发的汽车资源平台，类似瓜子二手车这种的&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;自我评价&quot;&gt;自我评价&lt;/h2&gt;
+三年的开发经验，主要以iOS开发为主，也多次参与其他岗位的开发。工作之外自己学习的编程技能包括：webAPP混合开发、H5开发、Cocos游戏开发、微信小程序开发。详情可以查看我的GitHub和以及博客。主要做前端的一些开发，对服务端也做过一定了解，GitHub上cocos2d开发的斗地主用的服务端就是基于node.js搭建的框架。
+
+&lt;hr /&gt;
+&lt;h2 id=&quot;开源项目&quot;&gt;开源项目&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/JianghongJohn/cocoscreator-ddz&quot;&gt;斗地主&lt;/a&gt;：完整斗地主项目，全栈开发&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/JianghongJohn/weapp-luck&quot;&gt;小运气&lt;/a&gt;：微信小程序项目（3D抛硬币）node.js,MongoDB，全栈开发&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;技术文章&quot;&gt;技术文章&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.jianshu.com/p/639e9d013a55&quot;&gt;微信小程序项目（3D抛硬币）node.js,MongoDB，全栈开发&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.jianshu.com/p/20dc05b5a437&quot;&gt;马甲包处理和Python自动化文件更改&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;最后&quot;&gt;最后&lt;/h2&gt;
+
+希望您能给我一次面试的机会，不想因为没有过大厂经验，没有211毕业，就被错失了好机会，毕业三年有很认真的在学习各项的能力，不仅仅是计算机编程。感谢！
+</description>
+        <pubDate>Wed, 29 May 2019 14:23:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/05/29/resume/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/05/29/resume/</guid>
+        
+        <category>iOS</category>
+        
+        
+        <category>iOS</category>
+        
+      </item>
     
       <item>
         <title>微信小程序项目（3D硬币动画），node.js,MongoDB，Koa网络框架,OSS对象存储</title>
@@ -18,10 +138,10 @@
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;一项目基本效果&quot;&gt;一、项目基本效果&lt;/h3&gt;
-&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/5273985-b76a38699385bb81.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;IMG_1783.PNG&quot; /&gt;
-&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/5273985-b5f761fd1c76f8a6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;WeChatefb6bc3a3b27596687426d135e1d8020.png&quot; /&gt;
-&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/5273985-782312f93ed3e222.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;IMG_1788.PNG&quot; /&gt;
-&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/5273985-f7f7b76c80bb5508.PNG?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;IMG_1801.PNG&quot; /&gt;
+&lt;img src=&quot;https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/weapp_luck_1.PNG?raw=true&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/weapp_luck_2.png?raw=true&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/weapp_luck_3.PNG?raw=true&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/weapp_luck_4.PNG?raw=true&quot; alt=&quot;&quot; /&gt;
 
 &lt;h3 id=&quot;二后台框架搭建&quot;&gt;二、后台框架搭建&lt;/h3&gt;
 &lt;blockquote&gt;
@@ -424,7 +544,7 @@ http.listen(3000, function () {
 &lt;h3 id=&quot;9利用pm2启动serverjs文件&quot;&gt;9.利用pm2启动server.js文件&lt;/h3&gt;
 &lt;code class=&quot;highlighter-rouge&quot;&gt;mp2 start server.js&lt;/code&gt;
 
-&lt;img src=&quot;https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/server_node_pm2.png&quot; alt=&quot;image.png&quot; /&gt;
+&lt;img src=&quot;https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/server_node_pm2.png?raw=true&quot; alt=&quot;&quot; /&gt;
 
 关于pm2的用法具体可以百度谷歌
 </description>
@@ -456,8 +576,8 @@ http.listen(3000, function () {
 
 &lt;h3 id=&quot;一首先在coding建立两个私人仓库一个为组建远程索引仓库一个为模板项目仓库&quot;&gt;一、首先在coding建立两个私人仓库（一个为组建远程索引仓库，一个为模板项目仓库）&lt;/h3&gt;
 
-&lt;img src=&quot;https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_1.png&quot; alt=&quot;&quot; /&gt;
-&lt;img src=&quot;https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_2.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/iOS_pod_element_1.png?raw=true&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/iOS_pod_element_2.png?raw=true&quot; alt=&quot;&quot; /&gt;
 
 &lt;h3 id=&quot;二在本地的cocoapod中添加我们自己的远程仓库就是之前建的远程索引库地址&quot;&gt;二、在本地的cocoapod中添加我们自己的远程仓库(就是之前建的远程索引库地址)&lt;/h3&gt;
 
@@ -468,7 +588,7 @@ pod repo add JnethRepo [https://git.coding.net/jianghongjohn/JnethSpec.git](htt
 //这样就生成了你自己的本地仓库
 
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;img src=&quot;https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_4.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/iOS_pod_element_3.png?raw=trueg&quot; alt=&quot;&quot; /&gt;
 
 &lt;h3 id=&quot;三在任意的位置新建一个文件夹利用cocoapod建立repo模板&quot;&gt;三、在任意的位置新建一个文件夹利用cocoapod建立repo模板&lt;/h3&gt;
 
@@ -478,12 +598,12 @@ pod repo add JnethRepo [https://git.coding.net/jianghongjohn/JnethSpec.git](htt
 
 这样就生成了一个模板，接下来就是将你的组件放入Classes文件中，并添加到工程中就可以了
 
-&lt;img src=&quot;https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_4.png&quot; alt=&quot;&quot; /&gt;
-&lt;img src=&quot;https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_5.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/iOS_pod_element_4.png?raw=true&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/iOS_pod_element_5.png?raw=true&quot; alt=&quot;&quot; /&gt;
 
 &lt;h3 id=&quot;四修改podspec文件并验证spec文件的有效性&quot;&gt;四、修改podspec文件，并验证spec文件的有效性&lt;/h3&gt;
 
-&lt;img src=&quot;https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_6.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/iOS_pod_element_6.png?raw=true&quot; alt=&quot;&quot; /&gt;
 
 &lt;strong&gt;期间要做的是验证spec文件的有效性&lt;/strong&gt;
 
@@ -519,7 +639,7 @@ You can use the `--no-clean` option to inspect any issue.
 
 这里默认是0.1.0，一定要与之前我们在Xcode中看到的s.version号一致！
 
-&lt;img src=&quot;https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_7.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/iOS_pod_element_7.png?raw=true&quot; alt=&quot;&quot; /&gt;
 
 可以看到readme文件他也帮我们自动生成了
 
@@ -531,7 +651,7 @@ You can use the `--no-clean` option to inspect any issue.
 
 &lt;code class=&quot;highlighter-rouge&quot;&gt;pod repo push JnethRepo JnethKit.podspec --allow-warnings&lt;/code&gt;
 
-&lt;img src=&quot;https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_9.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/iOS_pod_element_9.png?raw=true&quot; alt=&quot;&quot; /&gt;
 
 &lt;h3 id=&quot;七这样我们就可以正常使用cocoapod常规方式pod我们自己的组件了&quot;&gt;七、这样我们就可以正常使用cocoapod常规方式pod我们自己的组件了&lt;/h3&gt;
 
@@ -539,13 +659,13 @@ You can use the `--no-clean` option to inspect any issue.
 
 &lt;code class=&quot;highlighter-rouge&quot;&gt;source '[https://git.coding.net/jianghongjohn/JnethSpec.git](https://git.coding.net/jianghongjohn/JnethSpec.git)’&lt;/code&gt;
 
-&lt;img src=&quot;https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_10.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/iOS_pod_element_10.png?raw=true&quot; alt=&quot;&quot; /&gt;
 
 这样我们的组件库就成功通过cocoapod加入到我们的项目中了，而且所有关联他都自动加好了
 
-&lt;img src=&quot;https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_11.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/iOS_pod_element_11.png?raw=true&quot; alt=&quot;&quot; /&gt;
 
-&lt;img src=&quot;https://coding.net/u/jianghongjohn/p/jianghongjohn.coding.me/git/raw/master/resource/iOS_pod_element_12.png&quot; alt=&quot;&quot; /&gt;
+&lt;img src=&quot;https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/iOS_pod_element_12.png?raw=true&quot; alt=&quot;&quot; /&gt;
 
 &lt;code class=&quot;highlighter-rouge&quot;&gt;#import &quot;JHKit-umbrella.h&quot;&lt;/code&gt;就可以使用所有的组件了
 
