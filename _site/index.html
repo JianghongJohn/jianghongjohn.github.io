@@ -145,51 +145,67 @@
                 <div class="excerpt">
                     <ul id="markdown-toc">
   <li><a href="#1template" id="markdown-toc-1template">1.template</a></li>
+  <li><a href="#2script" id="markdown-toc-2script">2.script</a></li>
 </ul>
 
 <h3 id="1template">1.template</h3>
 
 <blockquote>
-  <p>利用el-table创建一个表格，其中表格的第三列为二维码组件qrcode-vue
-```</p>
+  <p>利用el-table创建一个表格，其中表格的第三列为二维码组件qrcode-vue</p>
 </blockquote>
-<p>&lt;el-table v-if=”tableData” :data=”tableData” border id=”picture” style=”width: 80%;margin:auto”&gt;
-      <el-table-column prop="originUrl" label="原始链接"></el-table-column>
-      <el-table-column prop="linkUrl" label="微连接"></el-table-column>
-      &lt;el-table-column prop=”linkUrl” label=”二维码” min-width=200px&gt;
-        <template slot-scope="scope">
-          &lt;qrcode-vue :value="scope.row.linkUrl" :size="200" level="H"&gt;&lt;/qrcode-vue&gt;
-        </template>
-      &lt;/el-table-column&gt;
-    &lt;/el-table&gt;</p>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>基本效果是这样的
-![template.png](https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/web_zip1.png?raw=true)
 
-### 2.script
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+&lt;el-table v-if="tableData" :data="tableData" border id="picture" style="width: 80%;margin:auto"&gt;
+      &lt;el-table-column prop="originUrl" label="原始链接"&gt;&lt;/el-table-column&gt;
+      &lt;el-table-column prop="linkUrl" label="微连接"&gt;&lt;/el-table-column&gt;
+      &lt;el-table-column prop="linkUrl" label="二维码" min-width=200px&gt;
+        &lt;template slot-scope="scope"&gt;
+          &lt;qrcode-vue :value="scope.row.linkUrl" :size="200" level="H"&gt;&lt;/qrcode-vue&gt;
+        &lt;/template&gt;
+      &lt;/el-table-column&gt;
+    &lt;/el-table&gt;
+
 </code></pre></div></div>
-<p>import QrcodeVue from “qrcode.vue”;
-import FileSaver from ‘file-saver’
-import JSZip from ‘jszip’
+
+<p>基本效果是这样的</p>
+
+<p><img src="https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/web_zip1.png?raw=true" alt="template.png" /></p>
+
+<h3 id="2script">2.script</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+import QrcodeVue from "qrcode.vue";
+import FileSaver from 'file-saver'
+import JSZip from 'jszip'
 //下载二维码
     downloadPicture(){
       const zip = new JSZip()
       const cache = {}
-      let myCanvas = document.getElementById(‘picture’).getElementsByTagName(‘canvas’);
+      let myCanvas = document.getElementById('picture').getElementsByTagName('canvas');
       for (let index = 0; index &lt; myCanvas.length; index++) {
-          let data = myCanvas[index].toDataURL(“image/png”);</p>
+          let data = myCanvas[index].toDataURL("image/png");
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      let fileName = this.tableData[index].linkUrl;
-      zip.file(fileName+'.png',data.substring(22),{base64:true})
-      cache[fileName] = data
-  }
-  zip.generateAsync({type:"blob"}).then(content =&gt; { // 生成二进制流
-      FileSaver.saveAs(content, "二维码.zip") // 利用file-saver保存文件
-  })
-  
-} ``` &gt;关键是利用DOM，获取里面的元素，可以看到我定义的table id为picture let myCanvas = document.getElementById('picture').getElementsByTagName('canvas'); 这样获取到的myCanvas就是一个collection,就可以通过for循环得到里面的每个元素 这样下载就是把列表中的所有图片下载了，纯前端操作，就不用从服务器下载了。
+          let fileName = this.tableData[index].linkUrl;
+          zip.file(fileName+'.png',data.substring(22),{base64:true})
+          cache[fileName] = data
+      }
+      zip.generateAsync({type:"blob"}).then(content =&gt; { // 生成二进制流
+          FileSaver.saveAs(content, "二维码.zip") // 利用file-saver保存文件
+      })
+      
+    }
+
 </code></pre></div></div>
 
-<p><img src="https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/web_zip2.jpg?raw=true" alt="result.jpeg" /></p>
+<blockquote>
+  <p>关键是利用DOM，获取里面的元素，可以看到我定义的table id为picture
+let myCanvas = document.getElementById(‘picture’).getElementsByTagName(‘canvas’);
+这样获取到的myCanvas就是一个collection,就可以通过for循环得到里面的每个元素
+这样下载就是把列表中的所有图片下载了，纯前端操作，就不用从服务器下载了。</p>
+</blockquote>
+
+<p><img src="https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/web_zip2.jpg?raw=true" alt="result" /></p>
+
 
                 </div>
                 <div class="read-all">
