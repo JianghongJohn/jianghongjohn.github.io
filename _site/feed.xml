@@ -5,9 +5,70 @@
     <description></description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 29 May 2019 14:41:38 +0800</pubDate>
-    <lastBuildDate>Wed, 29 May 2019 14:41:38 +0800</lastBuildDate>
+    <pubDate>Thu, 20 Jun 2019 17:45:45 +0800</pubDate>
+    <lastBuildDate>Thu, 20 Jun 2019 17:45:45 +0800</lastBuildDate>
     <generator>Jekyll v3.8.5</generator>
+    
+      <item>
+        <title>Vue+jszip+file-saver 实现el-table中qrcode生成的二维码图片批量打包成zip下载</title>
+        <description>&lt;ul id=&quot;markdown-toc&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;#1template&quot; id=&quot;markdown-toc-1template&quot;&gt;1.template&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;1template&quot;&gt;1.template&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  利用el-table创建一个表格，其中表格的第三列为二维码组件qrcode-vue
+```
+&lt;/blockquote&gt;
+&amp;lt;el-table v-if=”tableData” :data=”tableData” border id=”picture” style=”width: 80%;margin:auto”&amp;gt;
+      &lt;el-table-column prop=&quot;originUrl&quot; label=&quot;原始链接&quot;&gt;&lt;/el-table-column&gt;
+      &lt;el-table-column prop=&quot;linkUrl&quot; label=&quot;微连接&quot;&gt;&lt;/el-table-column&gt;
+      &amp;lt;el-table-column prop=”linkUrl” label=”二维码” min-width=200px&amp;gt;
+        &lt;template slot-scope=&quot;scope&quot;&gt;
+          &amp;lt;qrcode-vue :value=&quot;scope.row.linkUrl&quot; :size=&quot;200&quot; level=&quot;H&quot;&amp;gt;&amp;lt;/qrcode-vue&amp;gt;
+        &lt;/template&gt;
+      &amp;lt;/el-table-column&amp;gt;
+    &amp;lt;/el-table&amp;gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;基本效果是这样的
+![template.png](https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/web_zip1.png?raw=true)
+
+### 2.script
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+import QrcodeVue from “qrcode.vue”;
+import FileSaver from ‘file-saver’
+import JSZip from ‘jszip’
+//下载二维码
+    downloadPicture(){
+      const zip = new JSZip()
+      const cache = {}
+      let myCanvas = document.getElementById(‘picture’).getElementsByTagName(‘canvas’);
+      for (let index = 0; index &amp;lt; myCanvas.length; index++) {
+          let data = myCanvas[index].toDataURL(“image/png”);
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;      let fileName = this.tableData[index].linkUrl;
+      zip.file(fileName+'.png',data.substring(22),{base64:true})
+      cache[fileName] = data
+  }
+  zip.generateAsync({type:&quot;blob&quot;}).then(content =&amp;gt; { // 生成二进制流
+      FileSaver.saveAs(content, &quot;二维码.zip&quot;) // 利用file-saver保存文件
+  })
+  
+} ``` &amp;gt;关键是利用DOM，获取里面的元素，可以看到我定义的table id为picture let myCanvas = document.getElementById('picture').getElementsByTagName('canvas'); 这样获取到的myCanvas就是一个collection,就可以通过for循环得到里面的每个元素 这样下载就是把列表中的所有图片下载了，纯前端操作，就不用从服务器下载了。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;img src=&quot;https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/web_zip2.jpg?raw=true&quot; alt=&quot;result.jpeg&quot; /&gt;
+</description>
+        <pubDate>Thu, 20 Jun 2019 17:39:00 +0800</pubDate>
+        <link>http://localhost:4000/2019/06/20/web_zip/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/06/20/web_zip/</guid>
+        
+        <category>vue.js</category>
+        
+        
+        <category>Web</category>
+        
+      </item>
     
       <item>
         <title>iOS工程师简历-江弘</title>

@@ -95,6 +95,111 @@
             
               <li>
                 <h2>
+                  <a class="post-link" href="/2019/06/20/web_zip/">Vue+jszip+file-saver 实现el-table中qrcode生成的二维码图片批量打包成zip下载</a>
+                </h2>
+                <div class="label">
+                    <div class="label-card">
+                        <i class="fa fa-calendar"></i>2019-06-20
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+                    <div class="label-card">
+                        
+                    </div>
+
+                    <div class="label-card">
+                    
+
+
+<!-- <span class="point">•</span> -->
+<span class="categories">
+  <i class="fa fa-th-list"></i>
+  
+    
+        <a href="/category/#Web" title="Category: Web" rel="category">Web</a>
+    
+  
+
+  <!-- <span class="point">•</span> -->
+</span>
+
+
+                    </div>
+
+                    <div class="label-card">
+                    
+<!-- <span class="point">•</span> -->
+<span class="pageTag">
+  <i class="fa fa-tags"></i>
+  
+    
+        <a href="/tag/#vue.js" title="Tag: vue.js" rel="tag">vue.js</a>
+    
+  
+
+</span>
+
+                    </div>
+                </div>
+                <div class="excerpt">
+                    <ul id="markdown-toc">
+  <li><a href="#1template" id="markdown-toc-1template">1.template</a></li>
+</ul>
+
+<h3 id="1template">1.template</h3>
+
+<blockquote>
+  <p>利用el-table创建一个表格，其中表格的第三列为二维码组件qrcode-vue
+```</p>
+</blockquote>
+<p>&lt;el-table v-if=”tableData” :data=”tableData” border id=”picture” style=”width: 80%;margin:auto”&gt;
+      <el-table-column prop="originUrl" label="原始链接"></el-table-column>
+      <el-table-column prop="linkUrl" label="微连接"></el-table-column>
+      &lt;el-table-column prop=”linkUrl” label=”二维码” min-width=200px&gt;
+        <template slot-scope="scope">
+          &lt;qrcode-vue :value="scope.row.linkUrl" :size="200" level="H"&gt;&lt;/qrcode-vue&gt;
+        </template>
+      &lt;/el-table-column&gt;
+    &lt;/el-table&gt;</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>基本效果是这样的
+![template.png](https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/web_zip1.png?raw=true)
+
+### 2.script
+</code></pre></div></div>
+<p>import QrcodeVue from “qrcode.vue”;
+import FileSaver from ‘file-saver’
+import JSZip from ‘jszip’
+//下载二维码
+    downloadPicture(){
+      const zip = new JSZip()
+      const cache = {}
+      let myCanvas = document.getElementById(‘picture’).getElementsByTagName(‘canvas’);
+      for (let index = 0; index &lt; myCanvas.length; index++) {
+          let data = myCanvas[index].toDataURL(“image/png”);</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      let fileName = this.tableData[index].linkUrl;
+      zip.file(fileName+'.png',data.substring(22),{base64:true})
+      cache[fileName] = data
+  }
+  zip.generateAsync({type:"blob"}).then(content =&gt; { // 生成二进制流
+      FileSaver.saveAs(content, "二维码.zip") // 利用file-saver保存文件
+  })
+  
+} ``` &gt;关键是利用DOM，获取里面的元素，可以看到我定义的table id为picture let myCanvas = document.getElementById('picture').getElementsByTagName('canvas'); 这样获取到的myCanvas就是一个collection,就可以通过for循环得到里面的每个元素 这样下载就是把列表中的所有图片下载了，纯前端操作，就不用从服务器下载了。
+</code></pre></div></div>
+
+<p><img src="https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/web_zip2.jpg?raw=true" alt="result.jpeg" /></p>
+
+                </div>
+                <div class="read-all">
+                    <a  href="/2019/06/20/web_zip/"><i class="fa fa-newspaper-o"></i>Read All</a>
+                </div>
+                <hr>
+              </li>
+            
+              <li>
+                <h2>
                   <a class="post-link" href="/2019/05/29/resume/">iOS工程师简历-江弘</a>
                 </h2>
                 <div class="label">
@@ -736,135 +841,6 @@ end_to_str = ‘VM’</p>
                 <hr>
               </li>
             
-              <li>
-                <h2>
-                  <a class="post-link" href="/2017/07/02/server_node_pm2/">linux搭建node.js服务，使用pm2启动socket.io服务的过程</a>
-                </h2>
-                <div class="label">
-                    <div class="label-card">
-                        <i class="fa fa-calendar"></i>2017-07-02
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-                    <div class="label-card">
-                        
-                    </div>
-
-                    <div class="label-card">
-                    
-
-
-<!-- <span class="point">•</span> -->
-<span class="categories">
-  <i class="fa fa-th-list"></i>
-  
-    
-        <a href="/category/#Server" title="Category: Server" rel="category">Server</a>
-    
-  
-
-  <!-- <span class="point">•</span> -->
-</span>
-
-
-                    </div>
-
-                    <div class="label-card">
-                    
-<!-- <span class="point">•</span> -->
-<span class="pageTag">
-  <i class="fa fa-tags"></i>
-  
-    
-        <a href="/tag/#linux" title="Tag: linux" rel="tag">linux</a>&nbsp;
-    
-        <a href="/tag/#node.js" title="Tag: node.js" rel="tag">node.js</a>
-    
-  
-
-</span>
-
-                    </div>
-                </div>
-                <div class="excerpt">
-                    <ul id="markdown-toc">
-  <li><a href="#1安装linux-git工具" id="markdown-toc-1安装linux-git工具">1.安装Linux Git工具 </a></li>
-  <li><a href="#2下载nvmnode版本管理工具" id="markdown-toc-2下载nvmnode版本管理工具">2.下载nvm(node版本管理工具)</a></li>
-  <li><a href="#3使用nvm下载" id="markdown-toc-3使用nvm下载">3.使用nvm下载</a></li>
-  <li><a href="#4编写packagejson文件" id="markdown-toc-4编写packagejson文件">4.编写package.json文件</a></li>
-  <li><a href="#5编写serverjs基础文件" id="markdown-toc-5编写serverjs基础文件">5.编写server.js基础文件</a></li>
-  <li><a href="#6将文件上传到你想要的路径" id="markdown-toc-6将文件上传到你想要的路径">6.将文件上传到你想要的路径</a></li>
-  <li><a href="#7node自带npm-用npm安装node所需的模块" id="markdown-toc-7node自带npm-用npm安装node所需的模块">7.node自带npm ,用npm安装node所需的模块</a></li>
-  <li><a href="#8让node能够在后台一直运行下载pm2管理工具" id="markdown-toc-8让node能够在后台一直运行下载pm2管理工具">8.让node能够在后台一直运行，下载pm2管理工具</a></li>
-  <li><a href="#9利用pm2启动serverjs文件" id="markdown-toc-9利用pm2启动serverjs文件">9.利用pm2启动server.js文件</a></li>
-</ul>
-
-<h3 id="1安装linux-git工具">1.安装Linux Git工具 </h3>
-<p><code class="highlighter-rouge">sudo yum install git</code></p>
-<h3 id="2下载nvmnode版本管理工具">2.下载nvm(node版本管理工具)</h3>
-<p><code class="highlighter-rouge">curl -o- https://raw.[githubusercontent.com/creationix](http://githubusercontent.com/creationix)/nvm/v0.33.1/install.sh | bash</code></p>
-
-<p><strong>下载完成后可能还是提示没有nvm命令，使用source更新环境变量 source ~/.bashrc或者source ~/.zshrc</strong></p>
-<h3 id="3使用nvm下载">3.使用nvm下载</h3>
-<p><code class="highlighter-rouge">node  nvm install node</code></p>
-<h3 id="4编写packagejson文件">4.编写package.json文件</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
-    "name": "node_test",
-
-    "version": "0.0.1",
-
-    "description": "my first socket.io app",
-
-    "dependencies": {
-
-        "express": "^4.15.2",
-
-        "socket.io": "^2.0.4"
-
-    }
-}
-</code></pre></div></div>
-<h3 id="5编写serverjs基础文件">5.编写server.js基础文件</h3>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 'use strict'
-
-var app = require('express')();
-
-var http = require('http').Server(app);
-
-var io = require('socket.io')(http);
-
-http.listen(3000, function () {
-
-    console.log('listening on *:3000');
-
-});
-</code></pre></div></div>
-<h3 id="6将文件上传到你想要的路径">6.将文件上传到你想要的路径</h3>
-
-<p><code class="highlighter-rouge">scp /path/filename username@servername:/path</code></p>
-
-<p><code class="highlighter-rouge">scp /ddz-server/server.js  root@192.168.0.101:/root/ddz/ddz_server</code></p>
-
-<h3 id="7node自带npm-用npm安装node所需的模块">7.node自带npm ,用npm安装node所需的模块</h3>
-<p><code class="highlighter-rouge">node install</code></p>
-<h3 id="8让node能够在后台一直运行下载pm2管理工具">8.让node能够在后台一直运行，下载pm2管理工具</h3>
-<p>然而这时候只要我们服务端控制台一退出我们的服务就会断了，这时候就需要我们使用pm2这个管理工具了。
-<code class="highlighter-rouge">npm install pm2 -g</code></p>
-<h3 id="9利用pm2启动serverjs文件">9.利用pm2启动server.js文件</h3>
-<p><code class="highlighter-rouge">mp2 start server.js</code></p>
-
-<p><img src="https://github.com/JianghongJohn/jianghongjohn.github.io/blob/master/resource/server_node_pm2.png?raw=true" alt="" /></p>
-
-<p>关于pm2的用法具体可以百度谷歌</p>
-
-                </div>
-                <div class="read-all">
-                    <a  href="/2017/07/02/server_node_pm2/"><i class="fa fa-newspaper-o"></i>Read All</a>
-                </div>
-                <hr>
-              </li>
-            
         </ul>
 
 
@@ -891,6 +867,8 @@ http.listen(3000, function () {
                     Recent Posts
                 </div>
                 <ul class="content-ul" recent>
+                    
+                        <li><a href="/2019/06/20/web_zip/">Vue+jszip+file-saver 实现el-table中qrcode生成的二维码图片批量打包成zip下载</a></li>
                     
                         <li><a href="/2019/05/29/resume/">iOS工程师简历-江弘</a></li>
                     
@@ -937,6 +915,15 @@ http.listen(3000, function () {
                         <a href="/category/#python" class="categories-list-item" cate="python">
                             <span class="name">
                                 python
+                            </span>
+                            <span class="badge">1</span>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/category/#Web" class="categories-list-item" cate="Web">
+                            <span class="name">
+                                Web
                             </span>
                             <span class="badge">1</span>
                         </a>
@@ -1007,6 +994,13 @@ http.listen(3000, function () {
                       
                       
                       <a href="/tag/#小程序" style="font-size: 9pt; color: #999;">小程序</a>
+                    
+                      
+                      
+                      
+                      
+                      
+                      <a href="/tag/#vue.js" style="font-size: 9pt; color: #999;">vue.js</a>
                     
                 </div>
             </div>
